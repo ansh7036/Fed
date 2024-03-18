@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #07df00;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #df0012;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.track-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.track-item div {
+    flex-grow: 1;
+}
+
+.track-item strong {
+    font-size: 18px;
+    color: #333;
+}
+
+.track-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+#local-music-input {
+    margin-top: 10px;
+}
+
+#local-tracks-list {
+    margin-top: 10px;
+}
+
+/* Hover effect */
+.track-item:hover {
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
