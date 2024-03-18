@@ -1,0 +1,80 @@
+const calculator = document.createElement('div');
+calculator.classList.add('calculator');
+
+const display = document.createElement('input');
+display.classList.add('display');
+display.setAttribute('type', 'text');
+display.setAttribute('readonly', 'true');
+
+const buttonsContainer = document.createElement('div');
+buttonsContainer.classList.add('buttons-container');
+
+const buttonLabels = [
+  '7', '8', '9', '/',
+  '4', '5', '6', '*',
+  '1', '2', '3', '-',
+  '0', '.', '=', '+',
+  'C', 'AC'
+];
+
+function calculate() {
+  try {
+    const result = eval(display.value);
+    display.value = result;
+  } catch (error) {
+    display.value = 'Error';
+  }
+}
+
+function buttonClickHandler(event) {
+  const buttonValue = event.target.textContent;
+
+  if (buttonValue === '=') {
+    calculate();
+  } else if (buttonValue === 'C') {
+    display.value = display.value.slice(0, -1);
+  } else if (buttonValue === 'AC') {
+    display.value = '';
+  } else {
+    display.value += buttonValue;
+  }
+}
+
+
+buttonLabels.forEach(label => {
+  const button = document.createElement('button');
+  button.textContent = label;
+  button.addEventListener('click', buttonClickHandler);
+  buttonsContainer.appendChild(button);
+});
+
+
+calculator.appendChild(display);
+calculator.appendChild(buttonsContainer);
+document.body.appendChild(calculator);
+
+calculator.style.display = 'inline-block';
+calculator.style.border = '1px solid #ccc';
+calculator.style.borderRadius = '5px';
+calculator.style.padding = '10px';
+calculator.style.backgroundColor = '#f9f9f9';
+calculator.style.fontFamily = 'Arial, sans-serif';
+
+display.style.width = '100%';
+display.style.height = '40px';
+display.style.marginBottom = '10px';
+display.style.fontSize = '18px';
+display.style.padding = '5px';
+
+buttonsContainer.style.display = 'grid';
+buttonsContainer.style.gridTemplateColumns = 'repeat(4, 1fr)';
+buttonsContainer.style.gridGap = '5px';
+
+buttonsContainer.querySelectorAll('button').forEach(button => {
+  button.style.width = '100%';
+  button.style.height = '40px';
+  button.style.fontSize = '18px';
+  button.style.border = 'none';
+  button.style.borderRadius = '5px';
+  button.style.cursor = 'pointer';
+});
